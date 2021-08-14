@@ -20,7 +20,7 @@ export default function Login() {
             </div>
             <div className='inputDiv'>
                 <Image src="/icons/fi-rr-lock.svg" width="30" height="30" />
-                <input className='inputText' type='text' />
+                <input className='inputText' type='password' />
             </div>
 
             <button className='loginButton' onClick={() => {alert('로그인'); router.push('/');}}>
