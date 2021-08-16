@@ -9,7 +9,7 @@ export default class StartWithKakao extends PureComponent {
     onSuccessKakaoLogin = (response) => {
         console.log(response.response);
         console.log(response.profile);
-        Router.push('/');
+        Router.push('/main');
     }
 
     onFailKakaoLogin = (error) => {

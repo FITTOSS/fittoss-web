@@ -2,6 +2,7 @@ import Image from 'next/image';
 import css from "styled-jsx/css";
 import {useRouter} from "next/router";
 import StartWithKakao from "../components/Login/StartWithKakao";
+import Logo from "../components/common/Logo";
 
 export default function Login() {
     const router = useRouter();
@@ -17,7 +18,7 @@ export default function Login() {
          // 로그인 폼
         <form onSubmit={onSubmitForm} className='container'>
             
-            <Image src="/images/fittoss_logo.png" width={280} height={50} />
+            <Logo />
 
             {/* 카카오톡으로 시작하기 버튼 */}
             <StartWithKakao />
