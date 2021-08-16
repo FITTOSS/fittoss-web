@@ -1,9 +1,10 @@
-import Image from "next/image";
-
 export default function Logo() {
-    return <Image src="/images/fittoss_logo.png" width={233} height={60}
-                  style={{
-                      boxShadow: '0px 3px 6px #00000029',
-                      opacity: 1,
-                  }} />;
+    return <div
+        style={{
+            background: "transparent url('/images/fittoss_logo.png') center no-repeat padding-box",
+            backgroundSize: 'contain',
+            opacity: 1,
+            width: '233px',
+            height: '60px'
+        }} />;
 }
