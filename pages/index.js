@@ -1,36 +1,52 @@
 import Image from 'next/image';
 import css from "styled-jsx/css";
 import {useRouter} from "next/router";
+import StartWithKakao from "../components/Login/StartWithKakao";
 
 export default function Login() {
     const router = useRouter();
+
+    const onSubmitForm = (e) => {
+        e.preventDefault();
+
+        alert('email = ' + e.target.email.value + '\npassword = ' + e.target.password.value);
+        //로그인 기능
+    }
+
     return(
-        <div className='container'>
-            {/* 로그인 */}
+         // 로그인 폼
+        <form onSubmit={onSubmitForm} className='container'>
+            
             <Image src="/images/fittoss_logo.png" width={280} height={50} />
 
-            <button className='kakaoTalkButton' onClick={() => {alert('카카오톡으로 시작하기'); router.push('/');}}>
-                <Image src="/images/kakaotalk.png" width={40} height={40}/>
-                <div className='kakaoTalkText'>카카오톡으로 시작하기</div>
-            </button>
+            {/* 카카오톡으로 시작하기 버튼 */}
+            <StartWithKakao />
 
+            {/* 이메일 입력 */}
             <div className='inputDiv'>
                 <Image src="/icons/fi-rr-user.svg" width="30" height="30" />
-                <input className='inputText' type='text' />
-            </div>
-            <div className='inputDiv'>
-                <Image src="/icons/fi-rr-lock.svg" width="30" height="30" />
-                <input className='inputText' type='password' />
+                <input className='inputText' type='text' name="email" />
             </div>
 
-            <button className='loginButton' onClick={() => {alert('로그인'); router.push('/');}}>
+            {/* 비밀번호 입력 */}
+            <div className='inputDiv'>
+                <Image src="/icons/fi-rr-lock.svg" width="30" height="30" />
+                <input className='inputText' type='password' name="password" />
+            </div>
+
+            {/* 로그인 버튼 */}
+            <button type="submit" className='loginButton'>
                 <div className='loginText'>로그인</div>
             </button>
+
+            <a className="forgotPwdButton">암호를 잊어버렸나요?</a>
+
+            <a className="registerButton">간편회원가입</a>
 
             {/* style */}
             <style jsx global>{`body{ margin:0px;}`}</style>
             <style jsx>{style}</style>
-        </div> 
+        </form>
     );
 }
 
@@ -39,6 +55,10 @@ const style = css`
       font-family: 'GodoB';  
       src: url('/fonts/GodoB.ttf');
     }
+  @font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('/fonts/IBMPlexSansKR-Regular.ttf');
+  }
     .container{
       display: flex;
       flex-direction: column;
@@ -47,23 +67,6 @@ const style = css`
       height: 100vh;
       background: url('/images/background30.png') no-repeat;
       background-size: cover;
-    }
-    .kakaoTalkButton{
-      border: none;
-      background: #FAE100;
-      border-radius: 5px;
-      width: 350px;
-      height: 60px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 50px;
-      margin-bottom: 10px;
-    }
-    .kakaoTalkText{
-      font-family: 'GodoB';
-      color: #3C1E1E;
-      font-size: 18px;
     }
   .inputDiv{
     background: white;
@@ -96,7 +99,20 @@ const style = css`
     font-size: 20px;
     font-family: 'GodoB';
   }
-   button:hover{
+  .forgotPwdButton{
+    font-family: 'IBMPlexSansKR-Regular';
+    font-size: 12px;
+    margin-top: 7px;
+    display: inline-flex;
+    width:350px;
+    justify-content: flex-end;
+  }
+  .registerButton{
+    font-family: 'IBMPlexSansKR-Regular';
+    font-size: 14px;
+    margin-top: 32px;
+  }
+   button:hover, a:hover{
      cursor: pointer;
    }
 `;
