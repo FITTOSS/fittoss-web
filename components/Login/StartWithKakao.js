@@ -27,13 +27,12 @@ export default class StartWithKakao extends PureComponent {
                             border: 'none',
                             background: '#FAE100',
                             borderRadius: '5px',
-                            width: '350px',
+                            width: '303px',
                             height: '60px',
                             display: 'flex',
                             justifyContent: 'center',
                             alignItems: 'center',
-                            marginTop: '50px',
-                            marginBottom: '10px'
+                            marginBottom: '15px'
                         }}>
                 <Image src="/images/kakaotalk.png" width={40} height={40}/>
                 <div className='kakaoTalkText'>카카오톡으로 시작하기</div>
@@ -50,7 +49,7 @@ const style = css`
       src: url('/fonts/GodoB.ttf');
     }
     .kakaoTalkText{
-      font-family: 'GodoB';
+      font: normal normal normal 18px/20px GodoB;
       color: #3C1E1E;
       font-size: 18px;
     }
