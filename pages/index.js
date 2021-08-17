@@ -46,28 +46,19 @@ export default function Login() {
                 <a className="registerButton">간편회원가입</a>
             </div>
             {/* style */}
-            <style jsx global>{`body{ margin:0px;}`}</style>
             <style jsx>{style}</style>
         </form>
     );
 }
 
 const style = css`
-    @font-face {  
-      font-family: 'GodoB';  
-      src: url('/fonts/GodoB.ttf');
-    }
-  @font-face {
-    font-family: 'IBMPlexSansKR-Regular';
-    src: url('/fonts/IBMPlexSansKR-Regular.ttf');
+  .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
-    .container{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
   .login-container{
     display: flex;
     flex-direction: column;
@@ -78,13 +69,15 @@ const style = css`
     border-radius: 10px;
     opacity: 1;
     width: 325px;
+    max-width: 90%;
     height: 404px;
     margin-top: 20px;
   }
   .inputDiv{
     background: #FCFCFC 0% 0% no-repeat padding-box;
     border: 1px solid #EDEDED;
-    width: 243px;
+    width: 273px;
+    max-width: calc(94% - 30px);
     height: 60px;
     display: flex;
     align-items: center;
@@ -103,17 +96,16 @@ const style = css`
     background: #383838;
     border-radius: 5px;
     width: 303px;
+    max-width: 94%;
     height: 60px;
     margin-top: 10px;
   }
   .loginText{
     color: white;
-    font-size: 23px;
     font: normal normal normal 20px/23px GodoB;
   }
   .forgotPwdButton{
     font: normal normal normal 12px/18px IBMPlexSansKR-Regular;
-    font-size: 18px;
     margin-top: 7px;
     display: inline-flex;
     width:303px;
@@ -121,7 +113,6 @@ const style = css`
   }
   .registerButton{
     font: normal normal normal 14px/21px IBMPlexSansKR-Regular;
-    font-size: 21px;
     margin-top: 33px;
   }
    button:hover, a:hover{

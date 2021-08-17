@@ -1,0 +1,12 @@
+body{
+    margin: 0;
+    background: white;
+}
+@font-face {
+    font-family: 'GodoB';
+    src: url('/fonts/GodoB.ttf');
+}
+@font-face {
+    font-family: 'IBMPlexSansKR-Regular';
+    src: url('/fonts/IBMPlexSansKR-Regular.ttf');
+}

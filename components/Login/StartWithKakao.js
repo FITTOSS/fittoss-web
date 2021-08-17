@@ -28,6 +28,7 @@ export default class StartWithKakao extends PureComponent {
                             background: '#FAE100',
                             borderRadius: '5px',
                             width: '303px',
+                            maxWidth: '94%',
                             height: '60px',
                             display: 'flex',
                             justifyContent: 'center',
