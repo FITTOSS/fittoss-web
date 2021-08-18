@@ -1,18 +1,13 @@
 import React from 'react';
 import css from "styled-jsx/css";
-import Logo from "../../components/common/Logo";
-import Image from "next/image";
+import Header from "../../components/Main/Header";
 
-export default function main() {
+export default function TrainerMain() {
     return(
         <div className='container'>
-            <div className='header-container'>
-                <Image src="/icons/fi-rr-menu-burger.svg" width={30} height={30} />
-                <Logo />
-                <Image src="/icons/fi-rr-portrait.svg" width={30} height={30} />
-            </div>
+            <Header />
             <div className="board">
-                <div className="title">선생님과 함께하는 운동로그</div>
+                <div className="title">트레이너 화면</div>
             </div>
             <style jsx>{style}</style>
         </div>
@@ -27,12 +22,6 @@ const style = css`
     justify-content: center;
     align-items: center;
     height: 100vh;
-  }
-  .header-container {
-    display: flex;
-    width: 680px;
-    justify-content: space-between;
-    margin-bottom: 30px;
   }
   .board{
     width: 680px;

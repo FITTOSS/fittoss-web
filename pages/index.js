@@ -1,53 +1,29 @@
-import Image from 'next/image';
+import React from "react";
 import css from "styled-jsx/css";
-import {useRouter} from "next/router";
-import StartWithKakao from "../components/Login/StartWithKakao";
 import Logo from "../components/common/Logo";
+import {useRouter} from "next/router";
+import {useDispatch} from "react-redux";
+import {SET_ROLE} from "../redux/types";
 
-export default function Login() {
+export default function Index() {
     const router = useRouter();
-
-    const onSubmitForm = (e) => {
-        e.preventDefault();
-
-        alert('email = ' + e.target.email.value + '\npassword = ' + e.target.password.value);
-        //로그인 기능
+    const dispatch = useDispatch();
+    const onClickMember = () => {
+        dispatch({type: SET_ROLE, role: 'member'});
+        router.push('/login');
+    }
+    const onClickTrainer = () => {
+        dispatch({type: SET_ROLE, role: 'trainer'});
+        router.push('/login');
     }
 
     return(
-         // 로그인 폼
-        <form onSubmit={onSubmitForm} className='container'>
-            
-            <Logo />
-
-            <div className='login-container'>
-                {/* 카카오톡으로 시작하기 버튼 */}
-                <StartWithKakao />
-
-                {/* 이메일 입력 */}
-                <div className='inputDiv'>
-                    <Image src="/icons/fi-rr-user.svg" width="30" height="30" />
-                    <input className='inputText' type='text' name="email" />
-                </div>
-
-                {/* 비밀번호 입력 */}
-                <div className='inputDiv'>
-                    <Image src="/icons/fi-rr-lock.svg" width="30" height="30" />
-                    <input className='inputText' type='password' name="password" />
-                </div>
-
-                {/* 로그인 버튼 */}
-                <button type="submit" className='loginButton'>
-                    <div className='loginText'>로그인</div>
-                </button>
-
-                <a className="forgotPwdButton">암호를 잊어버렸나요?</a>
-
-                <a className="registerButton">간편회원가입</a>
-            </div>
-            {/* style */}
-            <style jsx>{style}</style>
-        </form>
+      <div className="container">
+          <Logo />
+          <button className="memberButton" onClick={onClickMember}>회원님용</button>
+          <button className="trainerButton" onClick={onClickTrainer}>트쌤용</button>
+          <style jsx>{style}</style>
+      </div>
     );
 }
 
@@ -55,68 +31,30 @@ const style = css`
   .container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
+    margin-top: 30px;
+    height: calc(100vh - 30px);
   }
-  .login-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: #FFFFFF 0% 0% no-repeat padding-box;
-    box-shadow: 0px 3px 10px #00000029;
-    border-radius: 10px;
-    opacity: 1;
-    width: 325px;
-    max-width: 90%;
-    height: 404px;
-    margin-top: 20px;
+  .memberButton{
+    background: #EEEBFF 0% 0% no-repeat padding-box;
+    margin-top:50px;
+    margin-bottom: 20px;
   }
-  .inputDiv{
-    background: #FCFCFC 0% 0% no-repeat padding-box;
-    border: 1px solid #EDEDED;
-    width: 273px;
-    max-width: calc(94% - 30px);
-    height: 60px;
-    display: flex;
-    align-items: center;
-    padding: 0 15px;
-    margin-bottom: 1px;
+  .trainerButton{
+    background: #EBF1FF 0% 0% no-repeat padding-box;
   }
-  .inputText {
-    border: none;
-    outline:none;
-    margin-left: 15px;
-    width: 100%;
-    height: 30px;
-    font-size: 18px;
-  }
-  .loginButton{
-    background: #383838;
-    border-radius: 5px;
+  button{
     width: 303px;
-    max-width: 94%;
     height: 60px;
-    margin-top: 10px;
-  }
-  .loginText{
-    color: white;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 5px;
+    outline: none;
+    border-width: 0;
+    text-align: center;
     font: normal normal normal 20px/23px GodoB;
+    color: #1A1A1A;
   }
-  .forgotPwdButton{
-    font: normal normal normal 12px/18px IBMPlexSansKR-Regular;
-    margin-top: 7px;
-    display: inline-flex;
-    width:303px;
-    justify-content: flex-end;
+  button:hover{
+    cursor: pointer;
   }
-  .registerButton{
-    font: normal normal normal 14px/21px IBMPlexSansKR-Regular;
-    margin-top: 33px;
-  }
-   button:hover, a:hover{
-     cursor: pointer;
-   }
 `;
-
