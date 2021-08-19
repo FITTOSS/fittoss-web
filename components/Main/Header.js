@@ -8,7 +8,7 @@ export default class Header extends PureComponent {
         return(
             <div className='container'>
                 <Image src="/icons/fi-rr-menu-burger.svg" width={30} height={30} />
-                <Logo />
+                <div className="logo"><Logo /></div>
                 <Image src="/icons/fi-rr-portrait.svg" width={30} height={30} />
                 <style jsx>{style}</style>
             </div>
@@ -22,5 +22,15 @@ const style = css`
     width: 680px;
     justify-content: space-between;
     margin-bottom: 30px;
+    position: absolute;
+    top: 44px;
+  }
+  @media all and (max-width:479px){
+    .container{
+      width: 302px;
+    }
+    .logo{
+      display: none;
+    }
   }
 `;
