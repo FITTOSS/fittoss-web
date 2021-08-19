@@ -3,17 +3,15 @@ import KakaoLogin from "react-kakao-login";
 import Image from "next/image";
 import css from "styled-jsx/css";
 import Router from "next/router";
-import {useSelector} from "react-redux";
 
 const StartWithKakao = (props) => {
 
     const onSuccessKakaoLogin = (response) => {
-        // console.log(response.response);
-        // console.log(response.profile);
-        console.log(props.role);
-        console.log(props);
         if(props.role === 'member'){
-            Router.push('/member');
+            Router.push({
+                pathname: '/member',
+                query: {name: encodeURIComponent(response.profile.properties.nickname)}
+            });
         } else if (props.role === 'trainer') {
             Router.push('/trainer');
         } else {
@@ -31,6 +29,7 @@ const StartWithKakao = (props) => {
         <KakaoLogin token='8c9342658538f5f775e33765cedd9623'
                     onSuccess={onSuccessKakaoLogin}
                     onFail={onFailKakaoLogin}
+                    getProfile={true}
                     style={{
                         cursor: "pointer",
                         border: 'none',
@@ -52,10 +51,6 @@ const StartWithKakao = (props) => {
 }
 
 const style = css`
-    @font-face {  
-      font-family: 'GodoB';  
-      src: url('/fonts/GodoB.ttf');
-    }
     .kakaoTalkText{
       font: normal normal normal 18px/20px GodoB;
       color: #3C1E1E;
