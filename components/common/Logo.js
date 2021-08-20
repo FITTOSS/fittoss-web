@@ -6,5 +6,5 @@ export default function Logo() {
             opacity: 1,
             width: '233px',
             height: '60px'
-        }} />;
+        }}/>;
 }

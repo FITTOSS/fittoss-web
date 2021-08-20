@@ -8,6 +8,10 @@ import {useSelector} from "react-redux";
 export default function Login() {
     const router = useRouter();
     const role = useSelector((state) => state.role);
+    const onClickRegister = () => {
+        router.push('/join');
+        //회원가입 창 이동
+    }
 
     const onSubmitForm = (e) => {
         e.preventDefault();
@@ -44,7 +48,7 @@ export default function Login() {
 
                 <a className="forgotPwdButton">암호를 잊어버렸나요?</a>
 
-                <a className="registerButton">간편회원가입</a>
+                <a className="registerButton" onClick={onClickRegister}>간편회원가입</a>
             </div>
             {/* style */}
             <style jsx>{style}</style>
