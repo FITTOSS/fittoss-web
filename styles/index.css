@@ -10,3 +10,7 @@ body{
     font-family: 'IBMPlexSansKR-Regular';
     src: url('/fonts/IBMPlexSansKR-Regular.ttf');
 }
+.imgButton{
+    cursor: pointer;
+    display: inline-flex;
+}

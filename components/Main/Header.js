@@ -7,9 +7,9 @@ export default class Header extends PureComponent {
     render() {
         return(
             <div className='container'>
-                <Image src="/icons/fi-rr-menu-burger.svg" width={30} height={30} />
+                <div className="imgButton"><Image src="/icons/fi-rr-menu-burger.svg" width={30} height={30} /></div>
                 <div className="logo"><Logo /></div>
-                <Image src="/icons/fi-rr-portrait.svg" width={30} height={30} />
+                <div className="imgButton"><Image src="/icons/fi-rr-portrait.svg" width={30} height={30} /></div>
                 <style jsx>{style}</style>
             </div>
         );
@@ -24,6 +24,10 @@ const style = css`
     margin-bottom: 30px;
     margin-top: 44px;
   }
+  //.imgButton{
+  //  cursor: pointer;
+  //  display: inline-flex;
+  //}
   @media all and (max-width:499px){
     .container{
       width: 302px;
