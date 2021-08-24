@@ -22,10 +22,9 @@ const style = css`
     width: 680px;
     justify-content: space-between;
     margin-bottom: 30px;
-    position: absolute;
-    top: 44px;
+    margin-top: 44px;
   }
-  @media all and (max-width:479px){
+  @media all and (max-width:499px){
     .container{
       width: 302px;
     }
