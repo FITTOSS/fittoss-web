@@ -1,41 +1,104 @@
-import { useRouter } from 'next/router';
 import css from "styled-jsx/css";
-import React, {Component} from 'react';
+import React, {useState} from 'react';
+import {useSelector} from "react-redux";
 
-class JoinInput extends Component {
-    render() {
-        return (
-            <div className="inputDiv">
+
+
+export default function JoinInput(props) {
+    const role = useSelector((state) => state.role);
+    const [Email, setEmail] = useState();
+    const [ConfirmEmail, setConfirmEmail] = useState();
+    const [Password, setPassword] = useState();
+    const [ConfirmPassword, setConfirmPassword] = useState();
+
+    const onEmailHandler = (event) => {
+        setEmail(event.currentTarget.value)
+    }
+    const onConfirmEmailHandler = (event) => {
+        setConfirmEmail(event.currentTarget.value)
+    }
+    const onPasswordHandler = (event) => {
+        setPassword(event.currentTarget.value)
+    }
+    const onConfirmPasswordHandler = (event) => {
+        setConfirmPassword(event.currentTarget.value)
+    }
+    const onSubmitHandler = (event) => {
+        event.preventDefault();
+
+        if(Password !== ConfirmPassword) {
+            return alert('비밀번호가 같지 않습니다.')
+        }
+        if(Email !== ConfirmEmail) {
+            return alert('이메일이 같지 않습니다.')
+        }
+    }
+
+
+    return (
+        <div className="joinBox">
+            <span style={{
+                marginTop:"30px",
+                marginBottom: '20px'}}>회원가입</span>
+            <form className="inputDiv">
                 <div>
                     <div className="joinText">이메일</div>
-                    <input className="joinInput"></input>
+                    <input type="email" value={Email} onChange={onEmailHandler} className="joinInput"></input>
                 </div>
-                    
-                
+
+                <div>
+                    <div className="joinText">이메일 확인</div>
+                    <input type="email" value={ConfirmEmail} onChange={onConfirmEmailHandler} className="joinInput"></input>
+                </div>
+                                    
                 <div>
                     <div className="joinText">비밀번호</div>
-                    <input className="joinInput"></input>
+                    <input type="password" value={Password} onChange={onPasswordHandler} className="joinInput"></input>
                 </div>
-                <button className="joinButton">
+
+                <div>
+                    <div className="joinText">비밀번호 확인</div>
+                    <input type="password" value={ConfirmPassword} onChange={onConfirmPasswordHandler} className="joinInput"></input>
+                </div>
+
+                <button onSubmit={onSubmitHandler} className="joinButton">
                     <div>가입하기 &gt;</div>
                 </button>
-                <style jsx>{style}</style>
-            </div>
-        )
-    }
+            </form>
+            <style jsx>{style}</style>
+        </div>
+    )
 }
 
-export default JoinInput;
 
 const style = css`
+.joinBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 10px #00000029;
+    border-radius: 10px;
+    opacity: 1;
+    width: 325px;
+    height: 580px;
+    margin-top: 20px;
+    font-family: 'GodoB';
+ }
+.inputDiv {
+    height: 507px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+}
 .joinText {
     font-family: 'IBMPlexSansKR-Regular';
     font-size: 14px;
     margin-bottom: 10px;
     height: 20px;
   }
-  .joinInput {
+.joinInput {
     border: solid 1px #EDEDED;
     outline: none;
     border-radius: 20px;
@@ -45,17 +108,22 @@ const style = css`
     font-size: 18px;
     box-shadow: 0px -1px 10px 1px #0000000B;
     margin-bottom: 10px;
-  }
-  .joinButton {
-    background-color: #FFFFFF;
+}
+.joinButton {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 10px #0000000D;
+    border: 1px solid #EDEDED;
     border-radius: 20px;
-    border: solid 1px #EDEDED;
-    box-shadow: 0px 3px 10px 3px #0000000D;
+    opacity: 1;
     width: 303px;
     height: 60px;
     font-family: 'GodoB';
-    margin-top: 30px;
+    margin-top: 23px;
+    margin-bottom: 20px;
     font-size: 20px;
-  }
+}
   
 `
