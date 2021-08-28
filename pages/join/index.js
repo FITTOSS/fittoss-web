@@ -6,11 +6,11 @@ import Logo from "../../components/common/Logo";
 
 export default function Join() {
     return (
-        <form className='container'>
+        <div className='container'>
             <Logo/>
             <JoinInput/>
             <style jsx>{style}</style>
-        </form>     
+        </div>     
     )
 }
 

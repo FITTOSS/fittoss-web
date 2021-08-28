@@ -1,6 +1,6 @@
 import css from "styled-jsx/css";
 import React, {Component} from 'react';
-import Link from 'next/link'
+import Link from 'next/link';
 import Image from 'next/image';
 
 

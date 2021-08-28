@@ -2,16 +2,18 @@ import React from 'react';
 import css from "styled-jsx/css";
 import Logo from "../../components/common/Logo";
 import MyPageInput1 from '../../components/MyPageInput/MyPageInput1';
+import MyPageInput2 from '../../components/MyPageInput/MyPageInput2';
 
 
-export default function MyPage() {
+
+export default function MyPageInput() {
     return (
         <form className='container'>
             <Logo/>
             <div className="inputBox">
                 <div style={{marginTop:"30px",
             marginBottom:"30px"}}>내 정보</div>
-                <MyPageInput1/>
+                <MyPageInput2/>
             </div>
             <style jsx>{style}</style>
         </form>     
@@ -41,4 +43,5 @@ const style = css`
 }
  
  font-size: 20px;
+ font-weight: bold;
 `

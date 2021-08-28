@@ -1,4 +1,4 @@
-import {SET_ROLE} from "./types";
+import {SET_ROLE, REGISTER_USER} from "./types";
 
 const reducer = (state = {}, action) => {
     switch (action.type) {
@@ -7,9 +7,14 @@ const reducer = (state = {}, action) => {
                 ...state,
                 role: action.role
             };
+        case REGISTER_USER:
+            return {
+                ...state,
+                register: action.payload
+            };
         default:
             return state;
     }
 };
 
-export default reducer
+export default reducer;

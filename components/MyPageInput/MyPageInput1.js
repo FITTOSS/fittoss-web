@@ -13,14 +13,17 @@ export default function MyPageInput1(props) {
                 <div>
                     <div className="text">성별</div>
                     <div className="genderChoiceBox">
-                        <input type="button" value="남" className="genderLBtn"></input>
-                        <input type="button" value="여" className="genderRBtn"></input>
+                        <input type="radio" value="man" name="myRadio" id="myRadio1" className="genderInput"/>
+                            <label className="genderLBtn" for="myRadio1"><div>남</div></label>
+                        <input type="radio" value="woman" name="myRadio" id="myRadio2" className="genderInput"/>
+                            <label className="genderRBtn" for="myRadio2"><div>여</div></label>
                     </div>
                 </div>
                 <div>
                     <div className="text">생년월일</div>
-                    <input type="" className="input"></input>
+                    <input type="date" className="input"></input>
                 </div>
+                <input type="button" value="다음으로 &gt;" className="nextButton"/>
             </form>
             <style jsx>{style}</style>
         </div>
@@ -40,8 +43,15 @@ const style = css`
     flex-direction: row;
     width: 303px;
     height: 60px;
+    margin-bottom: 10px;
+}
+.genderInput {
+    display: none;
 }
 .genderLBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 50%;
     background: #FCFCFC 0% 0% no-repeat padding-box;
     border: 1px solid #EDEDED;
@@ -60,6 +70,9 @@ const style = css`
     box-shadow: inset 4px 0px 12px #0000000D;
 }
 .genderRBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 50%;
     background: #FCFCFC 0% 0% no-repeat padding-box;
     border: 1px solid #EDEDED;
@@ -69,6 +82,14 @@ const style = css`
     font-size: 20px;
 }
 .genderRBtn:hover {
+    background: #EDEDED 0% 0% no-repeat padding-box;
+    box-shadow: inset 4px 0px 12px #0000000D;
+}
+.genderInput:checked + .genderLBtn {
+    background: #EDEDED 0% 0% no-repeat padding-box;
+    box-shadow: inset 4px 0px 12px #0000000D;
+}
+.genderInput:checked + .genderRBtn {
     background: #EDEDED 0% 0% no-repeat padding-box;
     box-shadow: inset 4px 0px 12px #0000000D;
 }
@@ -82,14 +103,14 @@ const style = css`
     border: solid 1px #EDEDED;
     outline: none;
     border-radius: 20px;
-    background-color: #0000000B;
+    background-color: #FCFCFC;
     width: 303px;
     height: 60px;
     font-size: 18px;
     box-shadow: 0px -1px 10px 1px #0000000B;
     margin-bottom: 10px;
 }
-button {
+.nextButton {
     display:flex;
     justify-content: center;
     align-items: center;
@@ -101,8 +122,10 @@ button {
     width: 303px;
     height: 60px;
     font-family: 'GodoB';
-    margin-top: 23px;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
     font-size: 20px;
-ifont-size: 20px;
+}
+font-weight: bold;
+font-size: 20px;
 `

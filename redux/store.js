@@ -4,7 +4,7 @@ import reducer from "./reducer";
 import {composeWithDevTools} from "redux-devtools-extension";
 import reduxThunk from "redux-thunk";
 
-const configureStore = (initialState) => {
+export const configureStore = (initialState) => {
     const middlewares = [reduxThunk];
     const enhancer = process.env.NODE_ENV === 'production' ?
         compose(applyMiddleware(...middlewares)) :

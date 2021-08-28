@@ -1,15 +1,18 @@
 import css from "styled-jsx/css";
 import React, {useState} from 'react';
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
+import {REGISTER_USER} from "../../redux/types";
+import axios from 'axios';
 
 
 
 export default function JoinInput(props) {
+    const dispatch = useDispatch();
     const role = useSelector((state) => state.role);
-    const [Email, setEmail] = useState();
-    const [ConfirmEmail, setConfirmEmail] = useState();
-    const [Password, setPassword] = useState();
-    const [ConfirmPassword, setConfirmPassword] = useState();
+    const [Email, setEmail] = useState('');
+    const [ConfirmEmail, setConfirmEmail] = useState('');
+    const [Password, setPassword] = useState('');
+    const [ConfirmPassword, setConfirmPassword] = useState('');
 
     const onEmailHandler = (event) => {
         setEmail(event.currentTarget.value)
@@ -31,6 +34,27 @@ export default function JoinInput(props) {
         }
         if(Email !== ConfirmEmail) {
             return alert('이메일이 같지 않습니다.')
+        }
+        let body = {
+            email: Email,
+            password: Password
+        }
+        dispatch(registerUser(body))
+            .then(response => {
+                if(response.payload.success) {
+                    props.history.push("/login")
+                } else {
+                    alert("회원가입에 실패하였습니다.")
+                }
+            })
+    }
+    function registerUser(dataToSubmit) {
+        const request = axios.post('api/register', dataToSubmit)
+        .then(response => response.data)
+
+        return {
+            type: REGISTER_USER,
+            payload: request
         }
     }
 
