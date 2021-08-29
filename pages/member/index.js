@@ -5,10 +5,6 @@ import {useRouter} from "next/router";
 import Diet from "../../components/Main/member/Diet";
 import Workout from "../../components/Main/member/Workout";
 import Post from "../../components/Main/member/Post";
-<<<<<<< HEAD
-import MemberTabBar from "../../components/common/MemberTabBar";
-=======
->>>>>>> 898d8ae6b54e6a90f1cc56e6ad00eae89ec8c641
 
 export default function MemberMain(props) {
     const [memberName, setMemberName] = useState();
