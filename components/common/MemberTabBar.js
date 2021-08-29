@@ -3,7 +3,7 @@ import Image from "next/image";
 import css from "styled-jsx/css";
 import Router from "next/router";
 
-export default class TabBar extends PureComponent {
+export default class MemberTabBar extends PureComponent {
     render() {
         return(
             <div className='container'>
@@ -19,7 +19,8 @@ export default class TabBar extends PureComponent {
 
                 {/* 메인 */}
                 <div className="imgButton">
-                    <Image onClick={() => {Router.push('/member');}} src="/icons/fi-rr-home.svg" width={20} height={20}/>
+                    <Image onClick={() => {Router.push('/member');}}
+                           src="/icons/fi-rr-home.svg" width={20} height={20}/>
                 </div>
 
                 {/* 변화 기록 */}

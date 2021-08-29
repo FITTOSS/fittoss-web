@@ -5,7 +5,7 @@ import {useRouter} from "next/router";
 import Diet from "../../components/Main/member/Diet";
 import Workout from "../../components/Main/member/Workout";
 import Post from "../../components/Main/member/Post";
-import TabBar from "../../components/common/TabBar";
+import MemberTabBar from "../../components/common/MemberTabBar";
 
 export default function MemberMain(props) {
     const [memberName, setMemberName] = useState();
@@ -47,7 +47,7 @@ export default function MemberMain(props) {
             <div className="hidden">hidden</div>
 
             <div className="tab_bar">
-                <TabBar />
+                <MemberTabBar />
             </div>
             <style jsx>{style}</style>
         </div>
