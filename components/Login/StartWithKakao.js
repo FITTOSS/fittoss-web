@@ -7,12 +7,9 @@ import Router from "next/router";
 const StartWithKakao = (props) => {
     const onClickKakaoStart = () => {
         axios.get('http://localhost:4000/api/kakao/start').then((response) => {
-            if(response.data.success){
-                const user = response.data.data;
-                alert(user.email + ' 로그인에 성공하였습니다');
-            } else{
-                alert('로그인에 실패하였습니다');
-            }
+            console.log(response);
+        }).catch((err) => {
+            console.log(err);
         })
     }
 
