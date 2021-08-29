@@ -4,6 +4,7 @@ import {useRouter} from "next/router";
 import StartWithKakao from "../../components/Login/StartWithKakao";
 import Logo from "../../components/common/Logo";
 import {useSelector} from "react-redux";
+import axios from 'axios';
 
 export default function Login() {
     const router = useRouter();
@@ -15,8 +16,17 @@ export default function Login() {
 
     const onSubmitForm = (e) => {
         e.preventDefault();
-        alert('email = ' + e.target.email.value + '\npassword = ' + e.target.password.value);
-        //로그인 기능
+
+        //로그인
+        axios.patch('http://localhost:4000/api/login', {
+            "email": e.target.email.value,
+            "password": e.target.password.value
+        }).then((response) => {
+           console.log(response.data.data);
+        }).catch((err) => {
+            console.log(err.response.data);
+            alert(err.response.data.message);
+        });
     }
 
     return(
@@ -27,7 +37,7 @@ export default function Login() {
 
             <div className='login-container'>
                 {/* 카카오톡으로 시작하기 버튼 */}
-                <StartWithKakao role={role}/>
+                <StartWithKakao />
 
                 {/* 이메일 입력 */}
                 <div className='inputDiv'>
@@ -105,6 +115,7 @@ const style = css`
     max-width: 94%;
     height: 60px;
     margin-top: 10px;
+    box-shadow: 0px 3px 6px #00000029;
   }
   .loginText{
     color: white;
