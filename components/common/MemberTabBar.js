@@ -41,7 +41,7 @@ export default class MemberTabBar extends PureComponent {
 
 const style = css`
   .container{
-    height: 49px;
+    height: 48px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px -3px 10px #00000029;
     display: flex;
@@ -50,11 +50,5 @@ const style = css`
   }
   Image:hover{
     cursor: pointer;
-  }
-  //모바일
-  @media all and (max-width:499px){
-    .container{
-      padding-bottom: 34px;
-    }
   }
 `;

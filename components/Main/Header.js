@@ -8,7 +8,6 @@ export default class Header extends PureComponent {
         return(
             <div className='container'>
                 <div className="imgButton"><Image src="/icons/fi-rr-menu-burger.svg" width={30} height={30} /></div>
-                <div className="logo"><Logo /></div>
                 <div className="imgButton"><Image src="/icons/fi-rr-portrait.svg" width={30} height={30} /></div>
                 <style jsx>{style}</style>
             </div>
@@ -19,21 +18,10 @@ export default class Header extends PureComponent {
 const style = css`
   .container {
     display: flex;
-    width: 680px;
+    padding: 12px;
+    width: calc(100% - 24px);
     justify-content: space-between;
-    margin-bottom: 30px;
-    margin-top: 44px;
-  }
-  //.imgButton{
-  //  cursor: pointer;
-  //  display: inline-flex;
-  //}
-  @media all and (max-width:499px){
-    .container{
-      width: 302px;
-    }
-    .logo{
-      display: none;
-    }
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 6px #00000029;
   }
 `;
