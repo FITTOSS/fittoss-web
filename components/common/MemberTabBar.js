@@ -9,28 +9,28 @@ export default class MemberTabBar extends PureComponent {
             <div className='container'>
                 {/* 식단 관리 */}
                 <div className="imgButton">
-                    <Image src="/icons/fi-rr-cookie.svg" width={20} height={20} />
+                    <Image src="/icons/fi-rr-cookie.svg" width={36} height={36} />
                 </div>
 
                 {/* 운동 관리 */}
                 <div className="imgButton">
-                    <Image src="/icons/fi-rr-gym.svg" width={20} height={20} />
+                    <Image src="/icons/fi-rr-gym.svg" width={36} height={36} />
                 </div>
 
                 {/* 메인 */}
                 <div className="imgButton">
                     <Image onClick={() => {Router.push('/member');}}
-                           src="/icons/fi-rr-home.svg" width={20} height={20}/>
+                           src="/icons/fi-rr-home.svg" width={36} height={36}/>
                 </div>
 
                 {/* 변화 기록 */}
                 <div className="imgButton">
-                    <Image src="/icons/fi-rr-stats.svg" width={20} height={20} />
+                    <Image src="/icons/fi-rr-stats.svg" width={36} height={36} />
                 </div>
 
                 {/* 일정 관리 */}
                 <div className="imgButton">
-                    <Image src="/icons/fi-rr-calendar.svg" width={20} height={20} />
+                    <Image src="/icons/fi-rr-calendar.svg" width={36} height={36} />
                 </div>
 
                 <style jsx>{style}</style>
