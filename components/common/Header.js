@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import Image from "next/image";
-import Logo from "../common/Logo";
+import Logo from "./Logo";
 import css from "styled-jsx/css";
 
 export default class Header extends PureComponent {

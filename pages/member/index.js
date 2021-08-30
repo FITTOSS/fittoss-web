@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import css from "styled-jsx/css";
-import Header from "../../components/Main/Header";
+import Header from "../../components/common/Header";
 import {useRouter} from "next/router";
 import MemberTabBar from "../../components/common/MemberTabBar";
 import MenuItem from "../../components/Main/MenuItem";
 import Logo from "../../components/common/Logo";
-import Image from "next/image";
 import AddMenuItem from "../../components/Main/AddMenuItem";
 
 export default function MemberMain(props) {

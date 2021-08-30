@@ -1,6 +1,6 @@
 import React from 'react';
 import css from "styled-jsx/css";
-import Header from "../../components/Main/Header";
+import Header from "../../components/common/Header";
 
 export default function TrainerMain() {
     return(
